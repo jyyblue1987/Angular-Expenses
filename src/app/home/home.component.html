@@ -25,7 +25,7 @@
 				<td>{{row.cost}}</td>
 				<td>{{row.priority}}</td>
 				<td>{{row.desired}}%</td>
-				<td>{{row.actual}}%</td>
+				<td [ngClass]="{'highlight' : row.actual > row.desired}">{{row.actual}}%</td>
 				<td align="center">
 					<button (click)="onSelect(row)">Edit</button>
 					<button (click)="onDelete(row)">Delete</button>
