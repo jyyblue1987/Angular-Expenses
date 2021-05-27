@@ -1,7 +1,8 @@
 
 <div>
 	<label for="name">Total Budget: </label>
-	<input id="total_budget" [(ngModel)]="total_budget" placeholder="Total Budget" />
+	<input id="input_budget" [(ngModel)]="input_budget" placeholder="Total Budget" />
+	<button (click)="onUpdateBudget(input_budget)">&nbsp;&nbsp;Update&nbsp;&nbsp;</button>
 </div>
 
 <p><b>Total Monthly Funds:</b> {{total_budget}}</p>

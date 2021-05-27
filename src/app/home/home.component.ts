@@ -16,6 +16,7 @@ interface Expenses {
 })
 
 export class HomeComponent implements OnInit {
+	input_budget: number = 100;
 	total_budget: number = 100.00;
 	selected: Expenses = {
 		id: 0,
@@ -50,6 +51,11 @@ export class HomeComponent implements OnInit {
 
 	ngOnInit(): void {
 
+	}
+
+	onUpdateBudget(budget: number): void {
+		this.total_budget = budget;
+		this.calcuateActual();
 	}
 
 	calcuateActual(): void {
