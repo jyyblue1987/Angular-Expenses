@@ -1,4 +1,3 @@
-<p>home works!</p>
 
 <div>
 	<label for="name">Total Budget: </label>
@@ -16,6 +15,7 @@
 				<th><b>Priority</b></th>
 				<th><b>Desired Percentage<br>of Total Monthly<br>Funds</b></th>
 				<th><b>Acutaul Percentage<br>of Total Monthly<br>Funds</b></th>
+				<th><b>Action</b></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -25,7 +25,44 @@
 				<td>{{row.priority}}</td>
 				<td>{{row.desired}}%</td>
 				<td>{{row.actual}}%</td>
+				<td align="center">
+					<button (click)="onSelect(row)">Edit</button>
+					<button (click)="onDelete(row)">Delete</button>
+				</td>
 			</tr>
 		</tbody>
 	</table>
+</div>
+<div class="add-btn-container">
+	<button>Add</button>
+</div>
+
+<div>
+	<form>
+		<div>
+			<label for="expense">Expense: </label>
+			<input name="expense" [(ngModel)]="selected.expense" placeholder="Expense" />
+		</div>
+		<div>
+			<label for="cost">Cost: </label>
+			<input name="cost" [(ngModel)]="selected.cost" placeholder="Cost" />
+		</div>
+		<div>
+			<label for="cost">Priority: </label>
+			<select name="priority" [(ngModel)]="selected.priority">
+				<option value="Low">Low</option>
+				<option value="Medium">Medium</option>
+				<option value="High">High</option>
+			</select>
+		</div>
+		<div>
+			<label for="desired">Desired<br>Percentage:</label>
+			<input name="desired" [(ngModel)]="selected.desired" placeholder="Desired" />
+		</div>
+
+		<div style="margin-top: 10px">
+			<button (click)="onUpdate()">{{selected.id > 0 ? 'Update' : 'Create'}}</button>
+			<button (click)="onCancel()" style="margin-left: 5px">Cancel</button>
+		</div>
+	</form>
 </div>
