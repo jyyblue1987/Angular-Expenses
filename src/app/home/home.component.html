@@ -1,1 +1,31 @@
 <p>home works!</p>
+
+<div>
+	<label for="name">Total Budget: </label>
+	<input id="total_budget" [(ngModel)]="total_budget" placeholder="Total Budget" />
+</div>
+
+<p><b>Total Monthly Funds:</b> {{total_budget}}</p>
+
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th><b>Expense</b></th>
+				<th><b>Cost</b></th>
+				<th><b>Priority</b></th>
+				<th><b>Desired Percentage<br>of Total Monthly<br>Funds</b></th>
+				<th><b>Acutaul Percentage<br>of Total Monthly<br>Funds</b></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let row of expenses">
+				<td>{{row.expense}}</td>
+				<td>{{row.cost}}</td>
+				<td>{{row.priority}}</td>
+				<td>{{row.desired}}%</td>
+				<td>{{row.actual}}%</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
